@@ -3,10 +3,14 @@ const audioButtons = document.querySelectorAll('.audio');
 
 audioButtons.forEach((button) => {
   button.addEventListener('click', (e) => {
-    audioElements.forEach((audioSample) => {
-      audioSample.pause();
-      audioSample.currentTime = 0;
-    });
+    stopPlayback();
     e.target.children[0].play();
   });
 });
+
+function stopPlayback() {
+  audioElements.forEach((audioSample) => {
+    audioSample.pause();
+    audioSample.currentTime = 0;
+  });
+}
